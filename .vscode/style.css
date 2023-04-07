@@ -1,0 +1,216 @@
+* {
+  /* todos itens */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* width prevalecer sobre padding*/
+}
+
+:root {
+  /* dark theam*/
+  --text-color: white;
+  --border-color: rgba(255, 255, 255, 0.187);
+  --hover-link: rgba(209, 168, 209, 0.626);
+  --bg-hover: #e8d8e814;
+  --button: linear-gradient(230deg, rgba(157, 157, 157, 0.508), rgba(117, 117, 117, 0.042));
+  --bg-url: url(./assets/Mobile_Dark.jpg);
+  --switch-bg-url: url(./assets/MoonStars.svg);
+}
+  /* light theam*/
+.light {
+  --text-color: rgba(0, 0, 0, 0.681);
+  --border-color: rgba(0, 0, 0, 0.508);
+  --hover-link: rgb(132, 84, 121);
+  --bg-hover: #4c4c4c3a;
+  --button: linear-gradient(230deg, rgba(101, 101, 101, 0.601), rgba(72, 72, 72, 0.042));
+  --bg-url: url(./assets/Mobile_Light.jpg);
+  --switch-bg-url: url(./assets/Sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/Mobile_Dark.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+  /*         background: color image repeat position / size           */
+  background: var(--bg-url) no-repeat top center/cover;
+
+  transition: all 0.8s;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /*border: 1px solid white;*/
+  /* margin: topo lados abaixo; ou topo direita baixo esquerda */
+  margin: 40px auto 0px;
+  padding: 0 24px;
+
+}
+
+/*  profile  */
+
+#profile {
+  text-align: center;
+  padding: 5px;
+}
+
+#foto {
+  display: block;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid #875887;
+  margin: auto;
+  transition: all 0.5s;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin: 8px auto;
+}
+
+
+/* switch */
+
+#switch {
+  position: relative; /* vai limitar o position absolute nessa área*/
+  width: 64px;
+  height: 24px;
+  margin: 4px auto 0px;
+}
+
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border-radius: 50%;
+  border: 0;
+
+  position: absolute; /* ignora todos padding/margin tudo, 1 camada acima de todos*/
+  /*top: 0;
+  right: 0;*/
+  top: 50%;
+  left: 0;
+
+  z-index: 1; /* camada 1, acima da 0 (q está o span) */
+  transform: translateY(-50%);
+
+  box-shadow: 1px 1px 1px gray;
+
+  transition: all 0.5s;
+}
+
+#switch button:hover {
+  background-color: rgb(198, 198, 198);
+
+}
+
+
+
+/* modo light */
+.light #switch button{
+  right: 0;
+  left: initial;
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: linear-gradient(230deg, rgba(0, 0, 0, 0.16), rgba(255, 255, 255, 0.042));
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+}
+
+
+
+/* Links */
+
+ul {
+  list-style: none; /* tirar pontinho antes*/
+  display: flex; /* itens internos flexiveis*/
+  flex-direction: column; /* posicionamento itens*/
+  gap: 16px; /* distancia entre intens*/
+  padding: 24px 0;
+}
+
+ul li a{
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  background: linear-gradient(230deg, rgba(0, 0, 0, 0.16), rgba(255, 255, 255, 0.042));
+  border-radius: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 24px;
+  
+  /* se mudar vai demorar esse tempo
+  transition: item tempo*/
+  transition: all 0.5s;
+}
+
+
+/*passar mouse*/
+ul li a:hover {
+  padding: 19px 27px;
+  border: 1.5px solid var(--border-color);
+  background: var(--button);
+
+}
+
+#foto:hover {
+  width: 154px;
+  border: 3px solid var(--text-color);
+}
+
+
+/*  Social  */
+
+#social {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px;
+
+}
+ion-icon {
+  color: var(--text-color);
+  font-size: 23px;
+  transition: font-size 0.5s;
+  transition: background-color 0.7s;
+
+  padding: 8px;
+  border-radius: 50%;
+}
+
+ion-icon:hover {
+  color: var(--hover-link);
+  font-size: 25px;
+  background-color: var(--bg-hover);
+  
+  
+}
+
+/* rodapé */
+
+footer{
+  padding: 16px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--border-color);
+}
+
+footer a{
+  text-decoration: none;
+  color: var(--border-color);
+}
+
