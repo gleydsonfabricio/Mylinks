@@ -107,11 +107,13 @@ body * {
 
   box-shadow: 1px 1px 1px gray;
 
-  transition: all 0.5s;
+  animation: switch-slideback 0.4s;
+
+
 }
 
 #switch button:hover {
-  background-color: rgb(198, 198, 198);
+  outline: 4px solid var(--bg-hover);
 
 }
 
@@ -119,8 +121,9 @@ body * {
 
 /* modo light */
 .light #switch button{
-  right: 0;
-  left: initial;
+  /* animations: keyframe(name) duração opcional:fowards(manter propriedades do "to") */
+  animation: switch-slidein 0.4s forwards;
+
 }
 
 #switch span{
@@ -226,5 +229,27 @@ footer a{
 
   .light {
     --bg-url: url(./assets/Desktop_Light.jpg);
+  }
+}
+
+
+
+/* animations */
+
+@keyframes switch-slidein {
+  from{
+    left: 0;
+  }
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes switch-slideback {
+  from{
+    left: 50%;
+  }
+  to{
+    left: 0;
   }
 }
